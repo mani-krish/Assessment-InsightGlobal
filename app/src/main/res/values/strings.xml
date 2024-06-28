@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Assessment - Insight Global</string>
+    <string name="title_architecture">Assessment</string>
+    <string name="message_internet_error">Please check your network connection</string>
+    <string name="message_general_error">Something went wrong!</string>
+    <string name="message_app_exit">Are you sure you want to exit?</string>
+    <string name="message_no_data">No Data Found !</string>
+    <string name="title_alert">Alert</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="no">NO</string>
+    <string name="yes">YES</string>
+
+    <string name="title_photo_list">Flickr Photos</string>
+    <string name="label_search_photos">Search Photos</string>
+    <string name="title_photo_detail">Photo Detail</string>
+    <string name="label_back">Back</string>
+    <string name="label_description">Description is</string>
+    <string name="label_written_by">Written by</string>
+    <string name="label_published_on">Published on</string>
+
+
+</resources>
