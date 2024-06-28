@@ -3,11 +3,13 @@ package com.assessment.insightglobal.presentation.screens
 import android.util.Log
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.Icon
@@ -19,6 +21,7 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -49,7 +52,7 @@ fun FlickrPhotoDetail(navController: NavController) {
 @Composable
 fun PhotoDetail(photo: Photo, navController: NavController) {
 
-    Log.d("photo",photo.toString())
+    Log.d("photo", photo.toString())
 
     BackHandler(true) {
         navController.popBackStack()
@@ -88,32 +91,41 @@ fun PhotoDetail(photo: Photo, navController: NavController) {
             Spacer(modifier = Modifier.height(UIConstant.small))
 
             Text(
-                text = photo.title, style = styleTitle, modifier = Modifier.padding(UIConstant.medium)
+                text = photo.title,
+                style = styleTitle,
+                modifier = Modifier.padding(UIConstant.medium)
             )
 
             Spacer(modifier = Modifier.height(5.dp))
 
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.padding(UIConstant.medium)
+            ) {
+                Text(stringResource(R.string.label_written_by), style = styleAuthor)
+                Spacer(modifier = Modifier.width(8.dp)) // Adjust the width as needed
+                Text(photo.author)
+            }
+
+            Spacer(modifier = Modifier.height(UIConstant.small))
+
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.padding(UIConstant.medium)
+            ) {
+                Text(stringResource(R.string.label_published_on), style = stylePublishedDate)
+                Spacer(modifier = Modifier.width(8.dp)) // Adjust the width as needed
+                Text(Utils.formatDate(photo.published))
+            }
+
+            Spacer(modifier = Modifier.width(8.dp))
+
             Text(
-                text = stringResource(R.string.label_description) + photo.description,
+                stringResource(R.string.label_description) + " " + photo.description,
                 style = styleDescription,
                 modifier = Modifier.padding(UIConstant.medium)
             )
-
-            Spacer(modifier = Modifier.height(UIConstant.small))
-
-            Text(
-                text = stringResource(R.string.label_written_by) + photo.author,
-                style = styleAuthor,
-                modifier = Modifier.padding(UIConstant.medium)
-            )
-
-            Spacer(modifier = Modifier.height(UIConstant.small))
-
-            Text(
-                text = stringResource(R.string.label_published_on) + Utils.formatDate(photo.published),
-                style = stylePublishedDate,
-                modifier = Modifier.padding(UIConstant.medium)
-            )
         }
+
     }
 }
