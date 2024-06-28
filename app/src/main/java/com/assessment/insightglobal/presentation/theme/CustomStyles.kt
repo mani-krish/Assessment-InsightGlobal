@@ -64,7 +64,7 @@ val styleDescription = TextStyle(
 
 val styleAuthor = TextStyle(
     fontSize = 16.sp,
-    color = Color.Black,
+    color = Color.Blue,
     textAlign = TextAlign.Start,
     fontWeight = FontWeight.W500,
     fontStyle = FontStyle.Normal,
@@ -73,7 +73,7 @@ val styleAuthor = TextStyle(
 
 val stylePublishedDate = TextStyle(
     fontSize = 16.sp,
-    color = Color.Black,
+    color = Color.Blue,
     textAlign = TextAlign.Start,
     fontWeight = FontWeight.W500,
     fontStyle = FontStyle.Normal,
